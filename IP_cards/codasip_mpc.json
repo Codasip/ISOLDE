@@ -1,0 +1,175 @@
+{
+    // =====================
+    // Basic Info (required)
+    // =====================
+    "basicInfo": {
+      // Licensing
+      "licensing": "Proprietary Codasip Licence",
+
+      // Target FPGA / ASIC
+      "targetFpgaOrAsic": "ASIC, Demonstrated on VCU118",
+
+      // Design language
+      "designLanguage": "CodAL3"
+    },
+
+    // =====================
+    // System-Level Features (optional)
+    // =====================
+    "systemLevelFeatures": {
+      // Tight or Loose Coupling
+      "couplingType": "Tightly-coupled to A730 Core",
+
+      // Data Types
+      "dataTypes": "INT8,INT16,INT32,INT64,FP32,FP64",
+
+      // ISA
+      "isa": "RISC-V (RV64IMAFDCV)",
+
+      // Peak Ops/Cycle
+      "peakOpsPerCycle": "16",
+
+      // Interfaces
+      "interfaces": "AXI5",
+
+      // Compiler Support
+      "compilerSupport": "Y (Automatically generated) or RISC-V compatible compiler",
+
+      // External Memory Required
+      "externalMemoryRequired": "No, but supported",
+
+      // Cache / Scratchpad
+      "cacheOrScratchpad": "Cache"
+    },
+
+    // =====================
+    // Architecture
+    // =====================
+    "architecture": {
+      // Type (required)
+      "type": "Harvard architecture",
+
+      // No. Clock Domains (in sync with system, not internally generated) (required)
+      "numClockDomains": 1,
+
+      // Control Inteface (optional)
+      "controlInterface": {
+        // ISA Extension
+        "isaExtension": "RISC-V (RV64IMAFDCV)",
+
+        // Memory Mapped
+        "memoryMapped": "No",
+
+        // Protocol
+        "protocol": "AXI5 128b, Custom accelerator"
+      },
+
+      // Memory Interface (optional)
+      "memoryInterface": {
+        // Interface Protocol
+        "interfaceProtocol": "128bit AXI5 (AXI_WIDTH = 2*XLEN)",
+
+        // Hierarchy Level
+        "hierarchyLevel": "Separate L1 cache with shared L2 cache",
+
+        // Cached?
+        "cached": "Yes",
+
+        // IOMMU?
+        "iommu": "Yes"
+      },
+
+      // Interrupts (optional)
+      "interrupts": "Same as for A730"
+    },
+
+    // =====================
+    // Microarchitecture (optional)
+    // =====================
+    "microarchitecture": {
+      "parametrization": {
+        // Parametric No. of Units?
+        "parametricNumUnits": "One per core",
+
+        // Parametric Config?
+        "parametricConfig": "No"
+      },
+
+      "programmability": {
+        // Programmable Cores?
+        "programmableCores": "Yes (A730)",
+
+        // ISA Extension
+        "isaExtension": "RISC-V (RV64IMAFDCV)"
+      }
+    },
+
+    // =====================
+    // Software (optional)
+    // =====================
+    "software": {
+      "compiler": {
+        // Requires specialized compiler?
+        "requiresSpecializedCompiler": "Yes (automatically generated), or RISC-V compiler compatible with RISC-V V 1.0",
+
+        // Supported compiler(s)
+        "supportedCompilers": "gcc, LLVM, Codasip SDK"
+      },
+
+      "highLevelApi": {
+        // Is there a high-level API/SDK?
+        "hasHighLevelApi": "Yes - C intrinsics",
+
+        // Is there a domain specific compiler?
+        "hasDomainSpecificCompiler": "Yes"
+      }
+    },
+
+    // =====================
+    // Integration
+    // =====================
+    "integration": {
+      // ipDistribution.* (required)
+      "ipDistribution": {
+        // Manifest type
+        "manifestType": "None",
+
+        // Standalone simulation?
+        "standaloneSimulation": "No (A730 Required)",
+
+        // If above, SW requirements?
+        "standaloneSimulationSwRequirements": "MPC SW Package",
+
+        // Integration documented / examples?
+        "integrationDocsOrExamples": "Yes"
+
+      },
+
+      // synthesis.* (required)
+      "synthesis": {
+        // Is IP syntesizable?
+        "isSynthesizable": "Yes",
+
+        // FPGA synthesis examples avail?
+        "fpgaSynthesisExamples": "No",
+
+        // ASIC synthesis examples avail?
+        "asicSynthesisExamples": "No"
+      },
+
+      // simulation.* (required)
+      "simulation": {
+        // Closed-source simulation?
+        "closedSourceSimulation": "Yes (QuestaSim)",
+
+        // Open-source simulation?
+        "openSourceSimulation": "No"
+      },
+
+      // Other integration elements (optional)
+      "evaluation": {
+        // PPA results available?
+        "ppaResultsAvailable": "Yes - part of ISOLDE D3.5 deliverable"
+      }
+    }
+  }
